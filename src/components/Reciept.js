@@ -42,11 +42,4 @@ class Reciept extends Component {
     }
 }
 
-
-const mapStateToProps = checkOut => {
-    return{
-
-    }
-}
-
-export default connect(mapStateToProps(Reciept));
+export default Reciept;

@@ -68,7 +68,7 @@ export function fetchItems() {
             }
             return response.json()
         }).then((res) => {
-            dispatch(itemsFetched(res.Items));
+            dispatch(itemsFetched(res.items));
         }).catch((e) => console.log(e));
     }
 }

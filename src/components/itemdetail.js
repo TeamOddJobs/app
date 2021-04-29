@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchItem } from "../actions/itemActions";
 import {connect} from 'react-redux';
-import {Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
 
@@ -13,6 +13,11 @@ class ItemDetail extends Component {
             dispatch(fetchItem(this.props.itemId));
         }
     }
+
+    toBuy(){
+        <Redirect to='https://webapi-oddjobs.herokuapp.com/buy'> Buy </Redirect>
+    }
+
 
     render() {
         const DetailInfo = () => {
@@ -32,6 +37,8 @@ class ItemDetail extends Component {
                         <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
                         <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                     </ListGroup>
+
+                    <button type = "button" onclick={this.toBuy}>Purchase</button>
                 </Card>
             )
         }

@@ -1,7 +1,6 @@
 import React, { component } from 'react';
 import { fetchItem} from "../actions/itemActions";
 import {connect} from 'react-redux';
-import { redirect } from 'react-router';
 import {Card, ListGroup, ListGroupItem, Button, Form } from 'react-bootstrap';
 
 
@@ -17,7 +16,7 @@ class Reciept extends Component {
 
 
     retMenu(){
-        <Redirect to='https://webapi-oddjobs.herokuapp.com'> Return </Redirect>
+        window.location = "https://webapi-oddjobs.herokuapp.com"
     }
     render() {
         return(

@@ -15,8 +15,6 @@ class buy extends Component {
     }
 
 
-   
-    this.updateDetails = this.updateDetails.bind(this);
 
     constructor(props) {
         super(props);

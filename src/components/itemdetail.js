@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
+import { redirect } from 'react-router';
 
 class ItemDetail extends Component {
 

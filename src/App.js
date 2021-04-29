@@ -14,7 +14,7 @@ function App() {
       <Provider store={store}>
         <HashRouter>
           <div>
-            <MovieHeader />
+            <ItemHeader />
             <Route exact path="/" render={()=><ItemList />}/>
             <Route exact path="/itemlist" render={()=><ItemList />}/>
             <Route exact path="/item/:itemId" render={()=><Item />}/>

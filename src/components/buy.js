@@ -1,7 +1,6 @@
 import React, { component } from 'react';
 import { fetchItem} from "../actions/itemActions";
 import {connect} from 'react-redux';
-import { redirect } from 'react-router';
 import {Card, ListGroup, ListGroupItem, Button, Form } from 'react-bootstrap';
 
 
@@ -49,14 +48,14 @@ class buy extends Component {
             this.checkOut.details.PayedAmt = newPrice;
             this.checkout.details.Donated = 'yes';
             this.checkout.details.DonatedAmt = donation;
-            <Redirect to='https://webapi-oddjobs.herokuapp.com/Reciept'>To Reciept</Redirect>
+            window.location = "https://webapi-oddjobs.herokuapp.com/Reciept"
     }
 
     notDonating(){
         this.checkOut.details.PayedAmt = this.prop.selectedItem.itemPrice;
         this.checkout.details.Donated = 'no';
         this.checkout.details.DonatedAmt = '0';
-        <Redirect to='https://webapi-oddjobs.herokuapp.com/Reciept'>To Reciept</Redirect>
+        window.location = "https://webapi-oddjobs.herokuapp.com/Reciept"
     }
 
     render() {

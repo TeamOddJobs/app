@@ -97,10 +97,4 @@ class buy extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return{
-        selectedItem: state.item.selectedItem
-    }
-}
-
-export default connect(mapStateToProps(buy));
+export default buy;

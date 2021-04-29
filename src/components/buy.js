@@ -98,7 +98,7 @@ class buy extends Component {
 
 const mapStateToProps = checkOut => {
     return{
-
+        selectedItem: state.item.selectedItem
     }
 }
 

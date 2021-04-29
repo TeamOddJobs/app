@@ -39,7 +39,7 @@ export function fetchItem(itemId) {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
-            mode: 'no-cors'
+            mode: 'cors'
         }).then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
@@ -61,7 +61,7 @@ export function fetchItems() {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
-            mode: 'no-cors'
+            mode: 'cors'
         }).then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);

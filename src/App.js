@@ -21,8 +21,8 @@ function App() {
             <Route exact path="/itemlist" render={()=><ItemList />}/>
             <Route exact path="/item/:itemId" render={()=><Item />}/>
             <Route path="/signin" render={()=><Authentication />}/>
-            <Route path="/buy" render={()=><buy />}/>
-            <Route path="/Reciept" render={()=><Reciept />}/>
+            //<Route path="/buy" render={()=><buy />}/>
+            //<Route path="/Reciept" render={()=><Reciept />}/>
           </div>
         </HashRouter>
       </Provider>

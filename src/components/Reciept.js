@@ -27,11 +27,11 @@ class Reciept extends Component {
                     <ListGroupItem>{this.props.selectedItem.itemName}</ListGroupItem>
                     <ListGroupItem>{"Item cost: $" + this.props.selectedItem.itemPrice}</ListGroupItem>
                     <ListGroupItem>{"Item Desc: " + this.props.selectedItem.itemDesc}</ListGroupItem>
-                    <ListGroupItem>{"Name of buyer: " + this.props.state.Name}</ListGroupItem>
-                    <ListGroupItem>{"Shipping Address: " + this.props.state.ShippingAdr}</ListGroupItem>
-                    <ListGroupItem>{"Total Payed: " + this.props.state.PayedAmt}</ListGroupItem>
-                    <ListGroupItem>{"Making Donation?:" + this.props.state.Donating}</ListGroupItem>
-                    <ListGroupItem>{"Total amount Donated: " + this.state.checkOut.DonatedAmt}</ListGroupItem>
+                    <ListGroupItem>{"Name of buyer: " + this.state.Name}</ListGroupItem>
+                    <ListGroupItem>{"Shipping Address: " + this.state.ShippingAdr}</ListGroupItem>
+                    <ListGroupItem>{"Total Payed: " + this.props.PayedAmt}</ListGroupItem>
+                    <ListGroupItem>{"Making Donation?:" + this.props.Donating}</ListGroupItem>
+                    <ListGroupItem>{"Total amount Donated: " + this.state.DonatedAmt}</ListGroupItem>
                     <ListGroupItem>{"Charity donated to: " +this.state.Name}</ListGroupItem>
                 </ListGroup>
 

@@ -1,4 +1,4 @@
-import React, { component } from 'react';
+import React, { Component } from 'react';
 import { fetchItem} from "../actions/itemActions";
 import {connect} from 'react-redux';
 import {Card, ListGroup, ListGroupItem, Button, Form } from 'react-bootstrap';
@@ -21,10 +21,10 @@ class Reciept extends Component {
     render() {
         return(
             <Card>
-                <Car.Header> Reciept</Car.Header>
+                <Card.Header> Reciept</Card.Header>
                 <ListGroup>
                     <ListGroupItem>{this.props.selectedItem.itemId}</ListGroupItem>
-                    <ListGroupItem><h4><BsStarFill/> {this.props.selectedItem.itemName}</h4></ListGroupItem>
+                    <ListGroupItem>{this.props.selectedItem.itemName}</ListGroupItem>
                     <ListGroupItem>{"Item cost: $" + this.props.selectedItem.itemPrice}</ListGroupItem>
                     <ListGroupItem>{"Item Desc: " + this.props.selectedItem.itemDesc}</ListGroupItem>
                     <ListGroupItem>{"Name of buyer: " + this.props.checkOut.Name}</ListGroupItem>

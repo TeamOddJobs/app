@@ -20,7 +20,7 @@ class buy extends Component {
         super(props);
         this.updateDetails = this.updateDetails.bind(this);
 
-        this.checkOut = {
+        this.state = {
             details:{
                 CardNum: '',
                 Donating: '',
@@ -72,22 +72,22 @@ class buy extends Component {
 
             <Form.Group controlId="Name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.checkOut.details.Name}  type="text" placeholder="Enter Name on card" />
+                <Form.Control onChange={this.updateDetails} value={this.state.details.Name}  type="text" placeholder="Enter Name on card" />
             </Form.Group>
 
             <Form.Group controlId="CardNum">
                 <Form.Label>Card Number</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.checkOut.details.CardNum}  type="text" placeholder="Enter card number" />
+                <Form.Control onChange={this.updateDetails} value={this.state.details.CardNum}  type="text" placeholder="Enter card number" />
             </Form.Group>
 
             <Form.Group controlId="ShippingAdr">
                 <Form.Label>Shipping Address</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.checkOut.details.ShippingAdr}  type="text" placeholder="Enter Shipping Address" />
+                <Form.Control onChange={this.updateDetails} value={this.state.details.ShippingAdr}  type="text" placeholder="Enter Shipping Address" />
             </Form.Group>
 
             <Form.Group controlId="Name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.checkOut.details.Name}  type="text" placeholder="Enter Name on card" />
+                <Form.Control onChange={this.updateDetails} value={this.state.details.Name}  type="text" placeholder="Enter Name on card" />
             </Form.Group>
 
             <Button onClick={this.isDonating}>Round Up and Donate.</Button>
@@ -96,5 +96,10 @@ class buy extends Component {
         )
     }
 }
+const mapStateToProps = checkOut => {
+    return{
 
-export default buy;
+    }
+}
+
+export default connect(mapStateToProps(buy));

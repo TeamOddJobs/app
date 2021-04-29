@@ -36,12 +36,12 @@ class Login extends Component {
         return (
             <Form className='form-horizontal'>
                 <Form.Group controlId="username">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label>username</Form.Label>
                     <Form.Control onChange={this.updateDetails} value={this.state.details.username} type="text" placeholder="Enter Username" />
                 </Form.Group>
 
                 <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>password</Form.Label>
                     <Form.Control onChange={this.updateDetails} value={this.state.details.password}  type="password" placeholder="Password" />
                 </Form.Group>
                 <Button onClick={this.login}>Sign in</Button>

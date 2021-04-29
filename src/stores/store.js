@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 const store = createStore(
     combineReducers( {
         auth: authReducer,
-        movie: movieReducer
+        item: itemReducer
     }),
     applyMiddleware(
         ...middlewares

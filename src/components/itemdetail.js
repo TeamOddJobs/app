@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
-import { redirect } from 'react-router';
 
 class ItemDetail extends Component {
 
@@ -16,7 +15,7 @@ class ItemDetail extends Component {
     }
 
     toBuy(){
-        <Redirect to='https://webapi-oddjobs.herokuapp.com/buy'> Buy </Redirect>
+        window.location = "https://webapi-oddjobs.herokuapp.com/buy"
     }
 
 

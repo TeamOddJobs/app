@@ -29,6 +29,8 @@ class ItemDetail extends Component {
                     <ListGroup>
                         <ListGroupItem>{this.props.selectedItem.itemId}</ListGroupItem>
                         <ListGroupItem><h4><BsStarFill/> {this.props.selectedItem.itemName}</h4></ListGroupItem>
+                        <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
+                        <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                     </ListGroup>
                 </Card>
             )

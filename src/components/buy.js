@@ -18,18 +18,23 @@ class buy extends Component {
    
     this.updateDetails = this.updateDetails.bind(this);
 
-    this.checkOut = {
-        details:{
-        CardNum: '',
-        Donating: '',
-        Name: '',
-        ShippingAdr: '',
-        PayedAmt: '',
-        DonatedAmt: '',
-        CharityName: ''
-        }
+    constructor(props) {
+        super(props);
+        this.updateDetails = this.updateDetails.bind(this);
+
+        this.checkOut = {
+            details:{
+                CardNum: '',
+                Donating: '',
+                Name: '',
+                ShippingAdr: '',
+                PayedAmt: '',
+                DonatedAmt: '',
+                CharityName: ''
+            }
 
         };
+    }
 
     updateDetails(event){
         let updateDetails = Object.assign({}, this.state.details);

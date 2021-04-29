@@ -15,23 +15,21 @@ class buy extends Component {
     }
 
 
-    constructor(props) {
-        super(props);
-        this.updateDetails = this.updateDetails.bind(this);
+   
+    this.updateDetails = this.updateDetails.bind(this);
 
-        this.checkOut = {
-            details:{
-                CardNum: '',
-                Donating: '',
-                Name: '',
-                ShippingAdr: '',
-                PayedAmt: '',
-                DonatedAmt: '',
-                CharityName: ''
-            }
+    this.checkOut = {
+        details:{
+        CardNum: '',
+        Donating: '',
+        Name: '',
+        ShippingAdr: '',
+        PayedAmt: '',
+        DonatedAmt: '',
+        CharityName: ''
+        }
 
         };
-    }
 
     updateDetails(event){
         let updateDetails = Object.assign({}, this.state.details);
@@ -96,7 +94,7 @@ class buy extends Component {
     }
 }
 
-const mapStateToProps = checkOut => {
+const mapStateToProps = state => {
     return{
         selectedItem: state.item.selectedItem
     }

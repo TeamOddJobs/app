@@ -8,17 +8,17 @@ import Receipt from "./Reciept";
 function Buy(props) {
 
 //state variables
-    let [itemName, setItemName] = useState('No Item Name');
-    let [price, setItemPrice] = useState('No Price');
-    let [desc, setItemDesc] = useState('No Desc');
-    let [image, setImage] = useState('no Image');
-    let [name, setUserName] = useState('No Name');
-    let [cardNum, setUserCard] = useState('0');
-    let [charity, setCharity] = useState('N/A');
-    let [payedAmt, setPayed] = useState('0');
-    let [donatedAmt, setDonateAmt] = useState('0');
-    let [donationStatus, setDonateStatus] = useState('No');
-    let [shipAdr, setShipAdr] = useState('Missing Shipping Address');
+    const [itemName, setItemName] = useState('No Item Name');
+    const [price, setItemPrice] = useState('No Price');
+    const [desc, setItemDesc] = useState('No Desc');
+    const [image, setImage] = useState('no Image');
+    const [name, setUserName] = useState('No Name');
+    const [cardNum, setUserCard] = useState('0');
+    const [charity, setCharity] = useState('N/A');
+    const [payedAmt, setPayed] = useState('0');
+    const [donatedAmt, setDonateAmt] = useState('0');
+    const [donationStatus, setDonateStatus] = useState('No');
+    const [shipAdr, setShipAdr] = useState('Missing Shipping Address');
 
 
     const clearInfo = () => {

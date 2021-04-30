@@ -119,9 +119,7 @@ class Buy extends Component {
                         </option>
                     </select>
                 </label>
-                <link to="/Reciept">
-                    <button type="button" onClick={this.checkOut}>Finish Checkout</button>
-                </link>
+                <button type="button" onClick={this.checkOut}>Finish Checkout</button>
             </Card>
         )
     }

@@ -4,7 +4,7 @@ import ItemHeader from './components/itemheader';
 import ItemList from './components/itemlist';
 import Item from './components/item';
 import Authentication from './components/authentication';
-import Buy from './components/buy';
+import Buy from './components/Buy';
 import {HashRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './stores/store';

@@ -92,23 +92,17 @@ class Buy extends Component {
                 <Form className='check-out'>
                     <Form.Group controlId="Name">
                         <Form.Label>Name</Form.Label>
-                        <Form.input
-                            onChange={(e) => this.updatedInfo(0, e.target.value)} type="text"
-                            placeholder="Enter Name on card"/>
+                        <input onChange={(e) => this.updatedInfo(0, e.target.value)} type="text" placeholder="Enter Name on card"/>
                     </Form.Group>
 
                     <Form.Group controlId="CardNum">
                         <Form.Label>Card Number</Form.Label>
-                        <Form.input
-                            onChange={(e) => this.updatedInfo(1, e.target.value)} type="text"
-                            placeholder="Enter card number"/>
+                        <input onChange={(e) => this.updatedInfo(1, e.target.value)} type="text" placeholder="Enter card number"/>
                     </Form.Group>
 
                     <Form.Group controlId="ShippingAdr">
                         <Form.Label>Shipping Address</Form.Label>
-                        <Form.input
-                            onChange={(e) => this.updatedInfo(6, e.target.value)} type="text"
-                            placeholder="Enter Shipping Address"/>
+                        <input onChange={(e) => this.updatedInfo(6, e.target.value)} type="text" placeholder="Enter Shipping Address"/>
                     </Form.Group>
                 </Form>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {fetchItem, setCheckout, setItem} from "../actions/itemActions";
+import {fetchItem, setCheckout} from "../actions/itemActions";
 import {connect} from 'react-redux';
-import {Card, ListGroup, ListGroupItem, Form} from 'react-bootstrap';
+import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 
@@ -121,7 +121,10 @@ class Buy extends Component {
                         </option>
                     </select>
                 </label>
-                <button type="button" onClick={this.checkOut}>Finish Checkout</button>
+                <Link to='./Reciept'>
+                    <Button type="button" onClick={this.checkOut}>Finish Checkout</Button>
+                </Link>
+
             </Card>
         )
     }

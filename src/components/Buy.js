@@ -17,6 +17,7 @@ class Buy extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
                 name: '',
                 cardNum: '',
@@ -88,27 +89,28 @@ class Buy extends Component {
                     <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
                     <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                 </ListGroup>
+                <Form className='check-out'>
+                    <Form.Group controlId="Name">
+                        <Form.Label>Name</Form.Label>
+                        <Form.input
+                            onChange={(e) => this.updatedInfo(0, e.target.value)} type="text"
+                            placeholder="Enter Name on card"/>
+                    </Form.Group>
 
-                <Form.Group controlId="Name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.input
-                        onChange={(e) => this.updatedInfo(0, e.target.value)} type="text"
-                        placeholder="Enter Name on card"/>
-                </Form.Group>
+                    <Form.Group controlId="CardNum">
+                        <Form.Label>Card Number</Form.Label>
+                        <Form.input
+                            onChange={(e) => this.updatedInfo(1, e.target.value)} type="text"
+                            placeholder="Enter card number"/>
+                    </Form.Group>
 
-                <Form.Group controlId="CardNum">
-                    <Form.Label>Card Number</Form.Label>
-                    <Form.input
-                        onChange={(e) => this.updatedInfo(1, e.target.value)} type="text"
-                        placeholder="Enter card number"/>
-                </Form.Group>
-
-                <Form.Group controlId="ShippingAdr">
-                    <Form.Label>Shipping Address</Form.Label>
-                    <Form.input
-                        onChange={(e) => this.updatedInfo(6, e.target.value)} type="text"
-                        placeholder="Enter Shipping Address"/>
-                </Form.Group>
+                    <Form.Group controlId="ShippingAdr">
+                        <Form.Label>Shipping Address</Form.Label>
+                        <Form.input
+                            onChange={(e) => this.updatedInfo(6, e.target.value)} type="text"
+                            placeholder="Enter Shipping Address"/>
+                    </Form.Group>
+                </Form>
 
                 <label>Would You like to round up to the nearest dollar amount and donate the difference to charity?
                     <select onChange={(e) => this.updatedInfo(2, e.target.value)}>

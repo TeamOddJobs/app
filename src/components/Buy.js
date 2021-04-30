@@ -17,8 +17,6 @@ class Buy extends Component {
 
     constructor(props) {
         super(props);
-        this.updateDetails = this.updateDetails.bind(this);
-
         this.state = {
                 name: '',
                 cardNum: '',

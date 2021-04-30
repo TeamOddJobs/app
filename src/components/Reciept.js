@@ -1,4 +1,3 @@
-import clearInfo from './Buy'
 import { Image } from 'react-bootstrap';
 import {Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 
@@ -25,7 +24,7 @@ const Receipt =(props) => {
                 </ListGroup>
 
 
-                <Button onClick={() => {clearInfo(); window.location.href='https://webapi-oddjobs.herokuapp.com'}}>Return to home</Button>
+                <Button onClick={() => {window.location.href='https://webapi-oddjobs.herokuapp.com'}}>Return to home</Button>
             </Card>
         )
     }

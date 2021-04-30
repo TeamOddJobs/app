@@ -5,7 +5,7 @@ import Receipt from "./Reciept";
 
 
 
-const Buy = (props) => {
+function Buy(props) {
 
 //state variables
     let [itemName, setItemName] = useState('No Item Name');
@@ -82,7 +82,7 @@ const Buy = (props) => {
         updatedInfo('price', props.itemPrice);
         updatedInfo('itemName', props.itemName);
 
-        if (charity == "N/A") {
+        if (charity === "N/A") {
             let donation = Math.round(parseInt(props.itemPrice)) - parseInt(props.itemPrice);
             let newPrice = donation + parseInt(props.itemPrice);
             updatedInfo('payedAmt', newPrice);

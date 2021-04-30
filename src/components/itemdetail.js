@@ -37,7 +37,7 @@ class ItemDetail extends Component {
                         <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
                         <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                     </ListGroup>
-                    <Link to="/Buy">
+                    <Link to="/buy">
                         <Button color= "blue">Purchase</Button>
                     </Link>
                 </Card>

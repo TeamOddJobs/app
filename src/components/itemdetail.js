@@ -18,7 +18,6 @@ class ItemDetail extends Component {
     }
 
     toBuy(){
-        clearInfo();
         return (<Buy itemId = {this.props.selectedItem.itemId} itemPrice = {this.props.selectedItem.itemPrice} itemName = {this.props.selectedItem.itemName} itemDesc = {this.props.selectedItem.itemDesc} imageUrl = {this.props.selectedItem.imageURL} />)
     }
 

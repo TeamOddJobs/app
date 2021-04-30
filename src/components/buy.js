@@ -5,7 +5,7 @@ import Receipt from "./Reciept";
 
 
 
-const buy = (props) => {
+const Buy = (props) => {
 
 //state variables
     let [itemName, setItemName] = useState('No Item Name');
@@ -172,4 +172,4 @@ const buy = (props) => {
     }
 
 
-    export default buy;
+    export default Buy;

@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
-import Buy from './buy';
-import clearInfo from './buy';
+import Buy from './Buy';
+import clearInfo from './Buy';
 
 
 class ItemDetail extends Component {

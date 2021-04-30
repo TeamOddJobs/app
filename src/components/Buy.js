@@ -68,7 +68,6 @@ class Buy extends Component {
             this.updatedInfo(4, donation);
             const {dispatch} = this.props;
             dispatch(setCheckout(this.state));
-            window.location.href="https://webapi-oddjobs.herokuapp.com/Reciept";
         } else {
             let newPrice = parseInt(this.props.selectedItem.itemPrice);
             let donation = '0';
@@ -77,7 +76,6 @@ class Buy extends Component {
             this.updatedInfo(4, donation);
             const {dispatch} = this.props;
             dispatch(setCheckout(this.state));
-            window.location.href="https://webapi-oddjobs.herokuapp.com/Reciept";
         }
     }
 

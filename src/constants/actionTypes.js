@@ -3,7 +3,8 @@ const Constants = {
     USER_LOGOUT: 'USER_LOGOUT',
     FETCH_ITEMS: 'FETCH_ITEMS',
     FETCH_ITEM: 'FETCH_ITEM',
-    SET_ITEM: 'SET_ITEM'
+    SET_ITEM: 'SET_ITEM',
+    SET_CHECKOUT: 'SET_CHECKOUT'
 }
 
 export default Constants;

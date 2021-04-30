@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { fetchItem } from "../actions/itemActions";
 import {connect} from 'react-redux';
-import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
-import { BsStarFill } from 'react-icons/bs'
+import {Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+import { BsStarFill } from 'react-icons/bs';
 import { Image } from 'react-bootstrap';
-import Buy from './Buy';
-import clearInfo from './Buy';
 
 
 class ItemDetail extends Component {
+
 
     componentDidMount() {
         const {dispatch} = this.props;
@@ -17,9 +17,6 @@ class ItemDetail extends Component {
         }
     }
 
-    toBuy = () => {
-        return (<Buy itemId = {this.props.selectedItem.itemId} itemPrice = {this.props.selectedItem.itemPrice} itemName = {this.props.selectedItem.itemName} itemDesc = {this.props.selectedItem.itemDesc} imageUrl = {this.props.selectedItem.imageURL} />)
-    }
 
 
     render() {
@@ -40,7 +37,9 @@ class ItemDetail extends Component {
                         <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
                         <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                     </ListGroup>
-                    <button type = "button" onClick={this.toBuy}>Purchase</button>
+                    <Link to="/Buy">
+                        <Button color= "blue">Purchase</Button>
+                    </Link>
                 </Card>
             )
         }

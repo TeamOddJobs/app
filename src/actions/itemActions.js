@@ -23,6 +23,29 @@ function itemSet(item) {
     }
 }
 
+function checkoutSet(data){
+    return{
+        type: actionTypes.SET_CHECKOUT,
+        itemName: data.itemName,
+        price: data.price,
+        desc: data.desc,
+        image: data.image,
+        name: data.name,
+        cardNum: data.cardNum,
+        charity: data.charity,
+        payedAmt: data.payedAmt,
+        donatedAmt: data.donatedAmt,
+        donationStatus: data.donationStatus,
+        shipAdr: data.donationStatus
+    }
+}
+
+export function setCheckout(data){
+    return dispatch => {
+        dispatch(checkoutSet(data));
+    }
+}
+
 export function setItem(item) {
     return dispatch => {
         dispatch(itemSet(item));

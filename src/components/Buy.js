@@ -1,74 +1,57 @@
-import React, { useState } from 'react';
-import {Card, ListGroup, ListGroupItem, Button, Form } from 'react-bootstrap';
-import Receipt from "./Reciept";
+import React, { Component } from 'react';
+import {fetchItem, setCheckout, setItem} from "../actions/itemActions";
+import {connect} from 'react-redux';
+import {Card, ListGroup, ListGroupItem, Form} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
+class Buy extends Component {
 
-
-function Buy(props) {
-
-//state variables
-    const [itemName, setItemName] = useState('No Item Name');
-    const [price, setItemPrice] = useState('No Price');
-    const [desc, setItemDesc] = useState('No Desc');
-    const [image, setImage] = useState('no Image');
-    const [name, setUserName] = useState('No Name');
-    const [cardNum, setUserCard] = useState('0');
-    const [charity, setCharity] = useState('N/A');
-    const [payedAmt, setPayed] = useState('0');
-    const [donatedAmt, setDonateAmt] = useState('0');
-    const [donationStatus, setDonateStatus] = useState('No');
-    const [shipAdr, setShipAdr] = useState('Missing Shipping Address');
-
-
-    const clearInfo = () => {
-        setItemName('No Item Name');
-        setItemPrice('No Price');
-        setItemDesc('No Desc');
-        setImage('No image');
-        setUserName('No Name');
-        setUserCard('0');
-        setCharity('N/A');
-        setPayed('0');
-        setDonateAmt('0');
-        setDonateStatus('No');
-        setShipAdr('Missing Shipping Address');
+    componentDidMount() {
+        const {dispatch} = this.props;
+        if (this.props.selectedItem == null) {
+            dispatch(fetchItem(this.props.itemId));
+        }
     }
 
-    const updatedInfo = (valueName, value) => {
-        switch (valueName) {
-            case itemName:
-                setItemName(value);
+
+    constructor(props) {
+        super(props);
+        this.updateDetails = this.updateDetails.bind(this);
+
+        this.state = {
+                name: '',
+                cardNum: '',
+                charity: '',
+                payedAmt: '',
+                donatedAmt: '',
+                donationStatus: '',
+                shipAdr: ''
+        };
+    }
+
+    updatedInfo = (valueAct, value) => {
+        switch (valueAct) {
+            case 0:
+                this.setState({name: value});
                 break;
-            case price:
-                setItemPrice(value);
+            case 1:
+                this.setState({cardNum: value});
                 break;
-            case desc:
-                setItemDesc(value);
+            case 2:
+                this.setState({charity: value});
                 break;
-            case image:
-                setImage(value);
+            case 3:
+                this.setState({payedAmt: value});
                 break;
-            case name:
-                setUserName(value);
+            case 4:
+                this.setState({donatedAmt: value});
                 break;
-            case cardNum:
-                setUserCard(value);
+            case 5:
+                this.setState({donationStatus: value});
                 break;
-            case charity:
-                setCharity(value);
-                break;
-            case payedAmt:
-                setPayed(value);
-                break;
-            case donatedAmt:
-                setDonateAmt(value);
-                break;
-            case donationStatus:
-                setDonateStatus(value);
-                break;
-            case shipAdr:
-                setShipAdr(value);
+            case 6:
+                this.setState({shipAdr: value});
                 break;
             default:
                 console.log("Failed to set information for reciept, incorrect case value.");
@@ -76,85 +59,61 @@ function Buy(props) {
         }
     }
 
-    const checkOut = () => {
-        updatedInfo('image', props.image);
-        updatedInfo('desc', props.itemDesc);
-        updatedInfo('price', props.itemPrice);
-        updatedInfo('itemName', props.itemName);
+    checkOut = () => {
 
-        if (charity === "N/A") {
-            let donation = Math.round(parseInt(props.itemPrice)) - parseInt(props.itemPrice);
-            let newPrice = donation + parseInt(props.itemPrice);
-            updatedInfo('payedAmt', newPrice);
-            updatedInfo('donationStatus', 'Yes');
-            updatedInfo('donatedAmt', donation);
-            return (<Receipt
-                itemName={itemName}
-                price={price}
-                desc={desc}
-                image={image}
-                name={name}
-                cardNum={cardNum}
-                charity={charity}
-                payedAmt={payedAmt}
-                donateAmt={donatedAmt}
-                donateStatus={donationStatus}
-                shipAdr={shipAdr}/>)
+        if (this.state.charity !== "N/A") {
+            let donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
+            let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
+            this.updatedInfo(3, newPrice);
+            this.updatedInfo(5, 'Yes');
+            this.updatedInfo(4, donation);
+            const {dispatch} = this.props;
+            dispatch(setCheckout(this.state));
         } else {
-            let newPrice = parseInt(props.itemPrice);
+            let newPrice = parseInt(this.props.selectedItem.itemPrice);
             let donation = '0';
-            updatedInfo('payedAmt', newPrice);
-            updatedInfo('donationStatus', 'Yes');
-            updatedInfo('donatedAmt', donation);
-            return (<Receipt
-                itemName={itemName}
-                price={price}
-                desc={desc}
-                image={image}
-                name={name}
-                cardNum={cardNum}
-                charity={charity}
-                payedAmt={payedAmt}
-                donateAmt={donatedAmt}
-                donateStatus={donationStatus}
-                shipAdr={shipAdr}/>)
+            this.updatedInfo(3, newPrice);
+            this.updatedInfo(5, 'No');
+            this.updatedInfo(4, donation);
+            const {dispatch} = this.props;
+            dispatch(setCheckout(this.state));
         }
     }
 
-
+    render() {
         return (
             <Card>
                 <Card.Header> Checkout</Card.Header>
                 <ListGroup>
-                    <ListGroupItem>{props.itemId}</ListGroupItem>
-                    <ListGroupItem>{props.itemName}</ListGroupItem>
-                    <ListGroupItem>{"$" + props.itemPrice}</ListGroupItem>
-                    <ListGroupItem>{props.itemDesc}</ListGroupItem>
+                    <ListGroupItem>{this.props.selectedItem.itemId}</ListGroupItem>
+                    <ListGroupItem>{this.props.selectedItem.itemName}</ListGroupItem>
+                    <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
+                    <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                 </ListGroup>
 
                 <Form.Group controlId="Name">
                     <Form.Label>Name</Form.Label>
                     <Form.input
-                        onChange={(e) => updatedInfo('name', e.target.value)} value={name} type="text"
+                        onChange={(e) => this.updatedInfo(0, e.target.value)} type="text"
                         placeholder="Enter Name on card"/>
                 </Form.Group>
 
                 <Form.Group controlId="CardNum">
                     <Form.Label>Card Number</Form.Label>
                     <Form.input
-                        onChange={(e) => updatedInfo('cardNum', e.target.value)} value={cardNum} type="text"
+                        onChange={(e) => this.updatedInfo(1, e.target.value)} type="text"
                         placeholder="Enter card number"/>
                 </Form.Group>
 
                 <Form.Group controlId="ShippingAdr">
                     <Form.Label>Shipping Address</Form.Label>
                     <Form.input
-                        onChange={(e) => updatedInfo('shipAdr', e.target.value)} value={shipAdr} type="text"
+                        onChange={(e) => this.updatedInfo(6, e.target.value)} type="text"
                         placeholder="Enter Shipping Address"/>
                 </Form.Group>
 
                 <label>Would You like to round up to the nearest dollar amount and donate the difference to charity?
-                    <select value={charity} onChange={(e) => updatedInfo('charity', e.target.value)}>
+                    <select onChange={(e) => this.updatedInfo(2, e.target.value)}>
                         <option value="N/A">No donation.</option>
                         <option value="Misplaced Mythical Creatures Foundation">Donate to Misplaced Mythical Creatures
                             Foundation
@@ -166,10 +125,18 @@ function Buy(props) {
                         </option>
                     </select>
                 </label>
-                <button type="button" onClick={checkOut}>Finish Checkout</button>
+                <link to="/Reciept">
+                    <button type="button" onClick={this.checkOut}>Finish Checkout</button>
+                </link>
             </Card>
-        );
+        )
     }
+}
 
+const mapStateToProps = state => {
+    return {
+        selectedItem: state.item.selectedItem
+    }
+}
 
-    export default Buy;
+export default connect(mapStateToProps)(Buy);

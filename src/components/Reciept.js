@@ -1,4 +1,4 @@
-import clearInfo from './buy'
+import clearInfo from './Buy'
 import { Image } from 'react-bootstrap';
 import {Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 

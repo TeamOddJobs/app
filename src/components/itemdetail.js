@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
+import buy from './buy';
+
 
 class ItemDetail extends Component {
 
@@ -14,9 +16,9 @@ class ItemDetail extends Component {
         }
     }
 
-    /*toBuy(){
-        window.location = "https://webapi-oddjobs.herokuapp.com/buy"
-    }*/
+    toBuy(){
+        return (<buy/>)
+    }
 
 
     render() {
@@ -37,8 +39,7 @@ class ItemDetail extends Component {
                         <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
                         <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
                     </ListGroup>
-
-                   // <button type = "button" onclick={this.toBuy}>Purchase</button>
+                    <button type = "button" onclick={this.toBuy}>Purchase</button>
                 </Card>
             )
         }
@@ -56,5 +57,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(ItemDetail);
+
 
 

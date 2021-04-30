@@ -5,6 +5,7 @@ import ItemList from './components/itemlist';
 import Item from './components/item';
 import Authentication from './components/authentication';
 import Buy from './components/Buy';
+import Reciept from "./components/Reciept";
 import {HashRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './stores/store';

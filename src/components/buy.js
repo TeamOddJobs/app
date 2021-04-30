@@ -1,105 +1,187 @@
 import React, { Component } from 'react';
-import { fetchItem} from "../actions/itemActions";
+import { useState } from 'react';
 import {connect} from 'react-redux';
 import {Card, ListGroup, ListGroupItem, Button, Form } from 'react-bootstrap';
+import Receipt from "./Reciept";
 
+
+//state variables
+let [itemName, setItemName] = useState('No Item Name');
+let [price, setItemPrice] = useState('No Price');
+let [desc, setItemDesc] = useState('No Desc');
+let [image, setImage] = useState('no Image');
+let [name, setUserName] = useState('No Name');
+let [cardNum, setUserCard] = useState('0');
+let [charity, setCharity] = useState('N/A');
+let [payedAmt, setPayed] = useState('0');
+let [donatedAmt, setDonateAmt] = useState('0');
+let [donationStatus, setDonateStatus] = useState('No');
+let [shipAdr, setShipAdr] = useState('Missing Shipping Address');
 
 class buy extends Component {
 
 
-    componentDidMount() {
-        const {dispatch} = this.props;
-        if (this.props.selectedItem == null) {
-            dispatch(fetchItem(this.props.itemId));
+    constructor(props) {
+        super(props);
+    }
+
+
+    clearInfo() {
+        setItemName('No Item Name');
+        setItemPrice('No Price');
+        setItemDesc('No Desc');
+        setImage('No image');
+        setUserName('No Name');
+        setUserCard('0');
+        setCharity('N/A');
+        setPayed('0');
+        setDonateAmt('0');
+        setDonateStatus('No');
+        setShipAdr('Missing Shipping Address');
+    }
+
+    updatedInfo(valueName, value) {
+        switch (valueName) {
+            case itemName:
+                setItemName(value);
+                break;
+            case price:
+                setItemPrice(value);
+                break;
+            case desc:
+                setItemDesc(value);
+                break;
+            case image:
+                setImage(value);
+                break;
+            case name:
+                setUserName(value);
+                break;
+            case cardNum:
+                setUserCard(value);
+                break;
+            case charity:
+                setCharity(value);
+                break;
+            case payedAmt:
+                setPayed(value);
+                break;
+            case donatedAmt:
+                setDonateAmt(value);
+                break;
+            case donationStatus:
+                setDonateStatus(value);
+                break;
+            case shipAdr:
+                setShipAdr(value);
+                break;
+            default:
+                console.log("Failed to set information for reciept, incorrect case value.");
+
+        }
+    }
+
+    checkOut() {
+        this.updatedInfo('image', this.props.selectedItem.image);
+        this.updatedInfo('desc', this.props.selectedItem.itemDesc);
+        this.updatedInfo('price', this.props.selectedItem.itemPrice);
+        this.updatedInfo('itemName', this.props.selectedItem.itemName);
+
+        if (charity == "N/A") {
+            let donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
+            let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
+            this.updatedInfo('payedAmt', newPrice);
+            this.updatedInfo('donationStatus', 'Yes');
+            this.updatedInfo('donatedAmt', donation);
+            return (<Reciept
+                itemName = {itemName}
+                price = {price}
+                desc = {desc}
+                image = {image}
+                name = {name}
+                cardNum = {cardNum}
+                charity = {charity}
+                payedAmt = {payedAmt}
+                donateAmt = {donatedAmt}
+                donateStatus = {donationStatus}
+                shipAdr = {shipAdr}/>)
+        } else {
+            let newPrice = parseInt(this.props.selectedItem.itemPrice);
+            let donation = '0';
+            this.updatedInfo('payedAmt', newPrice);
+            this.updatedInfo('donationStatus', 'Yes');
+            this.updatedInfo('donatedAmt', donation);
+            return (<Receipt
+                itemName = {itemName}
+                price = {price}
+                desc = {desc}
+                image = {image}
+                name = {name}
+                cardNum = {cardNum}
+                charity = {charity}
+                payedAmt = {payedAmt}
+                donateAmt = {donatedAmt}
+                donateStatus = {donationStatus}
+                shipAdr = {shipAdr}/>)
         }
     }
 
 
-
-    constructor(props) {
-        super(props);
-        this.updateDetails = this.updateDetails.bind(this);
-
-        this.state = {
-            details:{
-                CardNum: '',
-                Donating: '',
-                Name: '',
-                ShippingAdr: '',
-                PayedAmt: '',
-                DonatedAmt: '',
-                CharityName: ''
-            }
-
-        };
-    }
-
-    updateDetails(event){
-        let updateDetails = Object.assign({}, this.state.details);
-
-        updateDetails[event.target.id] = event.target.value;
-        this.setState({
-            details: updateDetails
-        });
-    }
-
-    isDonating(){
-            var donation = Math.round(this.props.selectedItem.itemPrice) - this.props.selectedItem.itemPrice;
-            var newPrice = donation + this.props.selectedItem.itemPrice;
-            this.checkOut.details.PayedAmt = newPrice;
-            this.checkout.details.Donated = 'yes';
-            this.checkout.details.DonatedAmt = donation;
-            window.location = "https://webapi-oddjobs.herokuapp.com/Reciept"
-    }
-
-    notDonating(){
-        this.checkOut.details.PayedAmt = this.prop.selectedItem.itemPrice;
-        this.checkout.details.Donated = 'no';
-        this.checkout.details.DonatedAmt = '0';
-        window.location = "https://webapi-oddjobs.herokuapp.com/Reciept"
-    }
-
     render() {
-        return(
-        <Card>
-            <Card.Header> Checkout</Card.Header>
-            <ListGroup>
-                <ListGroupItem>{this.props.selectedItem.itemId}</ListGroupItem>
-                <ListGroupItem>{this.props.selectedItem.itemName}</ListGroupItem>
-                <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
-                <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
-            </ListGroup>
+        this.clearInfo();
+        return (
+            <Card>
+                <Card.Header> Checkout</Card.Header>
+                <ListGroup>
+                    <ListGroupItem>{this.props.selectedItem.itemId}</ListGroupItem>
+                    <ListGroupItem><h4><BsStarFill/> {this.props.selectedItem.itemName}</h4></ListGroupItem>
+                    <ListGroupItem>{"$" + this.props.selectedItem.itemPrice}</ListGroupItem>
+                    <ListGroupItem>{this.props.selectedItem.itemDesc}</ListGroupItem>
+                </ListGroup>
 
-            <Form.Group controlId="Name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.state.details.Name}  type="text" placeholder="Enter Name on card" />
-            </Form.Group>
+                <Form.Group controlId="Name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.input
+                        onChange={(e) => this.updatedInfo('name', e.target.value)} value={name} type="text"
+                        placeholder="Enter Name on card"/>
+                </Form.Group>
 
-            <Form.Group controlId="CardNum">
-                <Form.Label>Card Number</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.state.details.CardNum}  type="text" placeholder="Enter card number" />
-            </Form.Group>
+                <Form.Group controlId="CardNum">
+                    <Form.Label>Card Number</Form.Label>
+                    <Form.input
+                        onChange={(e) => this.updatedInfo('cardNum', e.target.value)} value={cardNum} type="text"
+                        placeholder="Enter card number"/>
+                </Form.Group>
 
-            <Form.Group controlId="ShippingAdr">
-                <Form.Label>Shipping Address</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.state.details.ShippingAdr}  type="text" placeholder="Enter Shipping Address" />
-            </Form.Group>
+                <Form.Group controlId="ShippingAdr">
+                    <Form.Label>Shipping Address</Form.Label>
+                    <Form.input
+                        onChange={(e) => this.updatedInfo('shipAdr', e.target.value)} value={shipAdr} type="text"
+                        placeholder="Enter Shipping Address"/>
+                </Form.Group>
 
-            <Form.Group controlId="Name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control onChange={this.updateDetails} value={this.state.details.Name}  type="text" placeholder="Enter Name on card" />
-            </Form.Group>
-
-            <Button onClick={this.isDonating}>Round Up and Donate.</Button>
-            <Button onClick={this.notDonating}>Checkout without donating.</Button>
-        </Card>
+                <label>Would You like to round up to the nearest dollar amount and donate the difference to charity?
+                    <select value={charity} onChange={(e) => this.updatedInfo('charity', e.target.value)}>
+                        <option value="N/A">No donation.</option>
+                        <option value="Misplaced Mythical Creatures Foundation">Donate to Misplaced Mythical Creatures
+                            Foundation
+                        </option>
+                        <option value="Foundation for the coding impaired">Donate to the Charity for the coding
+                            impaired
+                        </option>
+                        <option value="Hell's moral improvement fund">Donate to the hell's moral improvement fund
+                        </option>
+                    </select>
+                </label>
+                <button type="button" onClick={this.checkOut}>Finish Checkout</button>
+            </Card>
         )
     }
 }
-const mapStateToProps = checkOut => {
-    return{
-
+    const mapStateToProps = state => {
+    return {
+        selectedItem: state.item.selectedItem
     }
 }
 
-export default connect(mapStateToProps(buy));
+    export default connect(mapStateToProps)(buy);

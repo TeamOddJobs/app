@@ -5,6 +5,7 @@ import {Card, ListGroup, ListGroupItem, Form, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
 import buy from './buy';
+import clearInfo from './buy';
 
 
 class ItemDetail extends Component {
@@ -17,7 +18,8 @@ class ItemDetail extends Component {
     }
 
     toBuy(){
-        return (<buy/>)
+        clearInfo();
+        return (<buy itemId = {this.props.selectedItem.itemId} itemPrice = {this.props.selectedItem.itemPrice} itemName = {this.props.selectedItem.itemName} itemDesc = {this.props.selectedItem.itemDesc} imageUrl = {this.props.selectedItem.imageURL} />)
     }
 
 

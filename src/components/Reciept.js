@@ -1,4 +1,5 @@
 import clearInfo from './buy'
+import { Image } from 'react-bootstrap';
 import {Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 
 
@@ -12,7 +13,7 @@ const Receipt =(props) => {
                     <Image className="image" src={props.image} thumbnail />
                 </Card.Body>
                 <ListGroup>
-                    <ListGroupItem><h4><BsStarFill/> {props.itemName}</h4></ListGroupItem>
+                    <ListGroupItem>{"Item Name: " + props.itemName}</ListGroupItem>
                     <ListGroupItem>{"Item cost: $" + props.price}</ListGroupItem>
                     <ListGroupItem>{"Item Desc: " + props.desc}</ListGroupItem>
                     <ListGroupItem>{"Name of buyer: " + props.name}</ListGroupItem>
@@ -30,4 +31,4 @@ const Receipt =(props) => {
     }
 
 
-export default Reciept;
+export default Receipt;

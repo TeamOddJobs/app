@@ -3,7 +3,8 @@ import { fetchItems } from "../actions/itemActions";
 import { setItem } from "../actions/itemActions";
 import {connect} from 'react-redux';
 import {Image, Nav} from 'react-bootstrap';
-import { Carousel } from 'react-bootstrap';
+// import { Carousel } from 'react-bootstrap';
+import Carousel, {Modal, ModalGateway} from 'react-images';
 import { BsStarFill} from 'react-icons/bs'
 import {LinkContainer} from 'react-router-bootstrap';
 
@@ -37,7 +38,7 @@ class ItemList extends Component {
             return (
                 <Carousel onSelect={this.handleSelect}>
                     {itemList.map((item) =>
-                        <Carousel.Item key={item.itemId}>
+                        <Carousel.Item views={item.itemId}>
                             <div>
                                 <LinkContainer to={'/item/'+item.itemId} onClick={()=>this.handleClick(item)}>
                                     <Nav.Link><Image className="image" src={item.imageUrl} thumbnail /></Nav.Link>

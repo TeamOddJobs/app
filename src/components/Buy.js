@@ -53,7 +53,7 @@ class Buy extends Component {
                 this.setState({shipAdr: value});
                 break;
             default:
-                console.log("Failed to set information for reciept, incorrect case value.");
+                console.log("Failed to set information for receipt, incorrect case value.");
 
         }
     }

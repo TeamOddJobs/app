@@ -3,8 +3,7 @@ import { fetchItems } from "../actions/itemActions";
 import { setItem } from "../actions/itemActions";
 import {connect} from 'react-redux';
 import {Image, Nav} from 'react-bootstrap';
-// import { Carousel } from 'react-bootstrap';
-import Carousel, {Modal, ModalGateway} from 'react-images';
+import { Carousel } from 'react-bootstrap';
 import { BsStarFill} from 'react-icons/bs'
 import {LinkContainer} from 'react-router-bootstrap';
 

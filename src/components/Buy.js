@@ -60,22 +60,38 @@ class Buy extends Component {
 
     checkOut = () => {
 
+        var checkOutData = { name : '', cardNum: '', charity: '', payedAmt: '', donatedAmt: '', donationStatus: '', shipAdr: '' };
+
         if (this.state.charity !== "N/A") {
             let donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
             let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'Yes');
             this.updatedInfo(4, donation);
-            //const {dispatch} = this.props;
-            dispatch(setCheckout(this.state));
+            checkOutData.name = this.state.name;
+            checkOutData.cardNum = this.state.cardNum;
+            checkOutData.charity = this.state.charity;
+            checkOutData.payedAmt = this.state.payedAmt;
+            checkOutData.donatedAmt = this.state.donatedAmt;
+            checkOutData.donationStatus = this.state.donationStatus;
+            checkOutData.shipAdr = this.state.shipAdr;
+            const {dispatch} = this.props;
+            dispatch(setCheckout(checkOutData));
         } else {
             let newPrice = parseInt(this.props.selectedItem.itemPrice);
             let donation = '0';
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'No');
             this.updatedInfo(4, donation);
-            //const {dispatch} = this.props;
-            dispatch(setCheckout(this.state));
+            const {dispatch} = this.props;
+            checkOutData.name = this.state.name;
+            checkOutData.cardNum = this.state.cardNum;
+            checkOutData.charity = this.state.charity;
+            checkOutData.payedAmt = this.state.payedAmt;
+            checkOutData.donatedAmt = this.state.donatedAmt;
+            checkOutData.donationStatus = this.state.donationStatus;
+            checkOutData.shipAdr = this.state.shipAdr;
+            dispatch(setCheckout(checkOutData));
         }
     }
 

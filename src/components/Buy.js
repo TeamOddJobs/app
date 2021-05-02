@@ -69,8 +69,8 @@ class Buy extends Component {
             const {dispatch} = this.props;
             dispatch(setCheckout(this.state));
         } else {
-            let newPrice = parseInt(this.props.selectedItem.itemPrice);
-            let donation = '0';
+            var newPrice = parseInt(this.props.selectedItem.itemPrice);
+            var donation = '0';
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'No');
             this.updatedInfo(4, donation);
@@ -112,14 +112,14 @@ class Buy extends Component {
                         <option value="Misplaced Mythical Creatures Foundation">Donate to Misplaced Mythical Creatures
                             Foundation
                         </option>
-                        <option value="Foundation for the coding impaired">Donate to the Charity for the coding
+                        <option value="Foundation for the coding Impaired">Donate to the Charity for the coding
                             impaired
                         </option>
-                        <option value="Hell's moral improvement fund">Donate to the hell's moral improvement fund
+                        <option value="Hell's Moral Improvement Fund">Donate to the hell's moral improvement fund
                         </option>
                     </select>
                 </label>
-                <Link to='./Reciept'>
+                <Link to='./Receipt'>
                     <Button type="button" onClick={this.checkOut}>Finish Checkout</Button>
                 </Link>
 

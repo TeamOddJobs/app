@@ -6,8 +6,8 @@ let initialState = {
       name: 'No Name',
       cardNum: '0',
       charity: 'N/A',
-      payedAmt: '0',
-      donatedAmt: '0',
+      payedAmt: 0,
+      donatedAmt: 0,
       donationStatus: 'No',
       shipAdr: 'Missing Shipping Address'
 }

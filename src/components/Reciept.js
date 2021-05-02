@@ -6,7 +6,7 @@ import {Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 
 
 
-class Reciept extends Component {
+class Receipt extends Component {
     render() {
         return (
             <Card>
@@ -47,4 +47,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Reciept);
+export default connect(mapStateToProps)(Receipt);

@@ -22,8 +22,8 @@ class Buy extends Component {
                 name: '',
                 cardNum: '',
                 charity: '',
-                payedAmt: '',
-                donatedAmt: '',
+                payedAmt: 0,
+                donatedAmt: 0,
                 donationStatus: '',
                 shipAdr: ''
         };
@@ -61,8 +61,8 @@ class Buy extends Component {
     checkOut = () => {
 
         if (this.state.charity !== "N/A") {
-            let donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
-            let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
+            var donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
+            var newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'Yes');
             this.updatedInfo(4, donation);
@@ -112,10 +112,10 @@ class Buy extends Component {
                         <option value="Misplaced Mythical Creatures Foundation">Donate to Misplaced Mythical Creatures
                             Foundation
                         </option>
-                        <option value="Foundation for the coding Impaired">Donate to the Charity for the coding
-                            impaired
+                        <option value="Foundation for the Coding Impaired">Donate to the Charity for the Coding
+                            Impaired
                         </option>
-                        <option value="Hell's Moral Improvement Fund">Donate to the hell's moral improvement fund
+                        <option value="Hell's Moral Improvement Fund">Donate to the Hell's Moral Improvement Fund
                         </option>
                     </select>
                 </label>

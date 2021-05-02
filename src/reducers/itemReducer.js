@@ -27,10 +27,6 @@ const itemReducer = (state = initialState, action) => {
                   updated['selectedItem'] = action.selectedItem;
                   return updated;
             case constants.SET_CHECKOUT:
-                  updated['itemName'] = action.itemName;
-                  updated['price'] = action.price;
-                  updated['desc'] = action.desc;
-                  updated['image'] = action.image;
                   updated['name'] = action.name;
                   updated['cardNum'] = action.cardNum;
                   updated['charity'] = action.charity;

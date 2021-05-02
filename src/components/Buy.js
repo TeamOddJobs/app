@@ -66,7 +66,7 @@ class Buy extends Component {
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'Yes');
             this.updatedInfo(4, donation);
-            const {dispatch} = this.props;
+            //const {dispatch} = this.props;
             dispatch(setCheckout(this.state));
         } else {
             let newPrice = parseInt(this.props.selectedItem.itemPrice);
@@ -74,7 +74,7 @@ class Buy extends Component {
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'No');
             this.updatedInfo(4, donation);
-            const {dispatch} = this.props;
+            //const {dispatch} = this.props;
             dispatch(setCheckout(this.state));
         }
     }

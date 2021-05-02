@@ -6,9 +6,9 @@ let initialState = {
       name: 'No Name',
       cardNum: '0',
       charity: 'N/A',
-      payedAmt: 0,
-      donatedAmt: 0,
-      donationStatus: true,
+      payedAmt: '0',
+      donatedAmt: '0',
+      donationStatus: 'true',
       shipAdr: 'Missing Shipping Address'
 }
 

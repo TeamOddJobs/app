@@ -61,16 +61,16 @@ class Buy extends Component {
     checkOut = () => {
 
         if (this.state.charity !== "N/A") {
-            const donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
-            const newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
+            let donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
+            let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'Yes');
             this.updatedInfo(4, donation);
             const {dispatch} = this.props;
             dispatch(setCheckout(this.state));
         } else {
-            const newPrice = parseInt(this.props.selectedItem.itemPrice);
-            const donation = '0';
+            let newPrice = parseInt(this.props.selectedItem.itemPrice);
+            let donation = '0';
             this.updatedInfo(3, newPrice);
             this.updatedInfo(5, 'No');
             this.updatedInfo(4, donation);

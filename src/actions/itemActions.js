@@ -38,7 +38,7 @@ function checkoutSet(data){
 
 export function setCheckout(data){
     return dispatch => {
-        dispatch(checkoutSet(data));
+        dispatch(setCheckout(data));
     }
 }
 

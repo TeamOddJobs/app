@@ -62,12 +62,13 @@ class Buy extends Component {
 
         var checkOutData = { name : '', cardNum: '', charity: '', payedAmt: '', donatedAmt: '', donationStatus: '', shipAdr: '' };
 
-        if (!this.state.charity) {
+        if (this.state.charity !== 'N/A') {
             let donation = Math.ceil(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
             let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
             this.state.payedAmt = this.updatedInfo(3, newPrice.toString());
             this.state.donationStatus = this.updatedInfo(5, 'Yes');
             this.state.donatedAmt = this.updatedInfo(4, donation.toString());
+
             checkOutData.name = this.state.name;
             checkOutData.cardNum = this.state.cardNum;
             checkOutData.charity = this.state.charity;
@@ -75,6 +76,7 @@ class Buy extends Component {
             checkOutData.donatedAmt = this.state.donatedAmt;
             checkOutData.donationStatus = this.state.donationStatus;
             checkOutData.shipAdr = this.state.shipAdr;
+
             const {dispatch} = this.props;
             dispatch(setCheckout(checkOutData));
         } else {
@@ -84,7 +86,6 @@ class Buy extends Component {
             this.state.donationStatus = this.updatedInfo(5, 'No');
             this.state.donatedAmt = this.updatedInfo(4, donation);
 
-            const {dispatch} = this.props;
             checkOutData.name = this.state.name;
             checkOutData.cardNum = this.state.cardNum;
             checkOutData.charity = this.state.charity;
@@ -92,6 +93,8 @@ class Buy extends Component {
             checkOutData.donatedAmt = this.state.donatedAmt;
             checkOutData.donationStatus = this.state.donationStatus;
             checkOutData.shipAdr = this.state.shipAdr;
+
+            const {dispatch} = this.props;
             dispatch(setCheckout(checkOutData));
         }
     }

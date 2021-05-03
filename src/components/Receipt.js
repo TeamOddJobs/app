@@ -21,7 +21,7 @@ class Receipt extends Component {
                     <ListGroupItem>{"Name of buyer: " + this.props.name}</ListGroupItem>
                     <ListGroupItem>{"Shipping Address: " + this.props.shipAdr}</ListGroupItem>
                     <ListGroupItem>{"Total Payed: " + this.props.payedAmt}</ListGroupItem>
-                    <ListGroupItem>{"Making Donation?:" + this.props.donatedStatus}</ListGroupItem>
+                    <ListGroupItem>{"Making Donation?:" + this.props.donationStatus}</ListGroupItem>
                     <ListGroupItem>{"Total amount Donated: " + this.props.donatedAmt}</ListGroupItem>
                     <ListGroupItem>{"Charity donated to: " + this.props.charity}</ListGroupItem>
                 </ListGroup>

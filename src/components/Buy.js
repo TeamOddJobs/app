@@ -65,9 +65,9 @@ class Buy extends Component {
         if (this.state.charity !== 'N/A') {
             let donation = Math.ceil(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
             let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
-            this.state.payedAmt = this.updatedInfo(3, newPrice.toString());
-            this.state.donationStatus = this.updatedInfo(5, 'Yes');
-            this.state.donatedAmt = this.updatedInfo(4, donation.toString());
+            this.state.payedAmt = newPrice.toString();
+            this.state.donationStatus = 'Yes';
+            this.state.donatedAmt = donation.toString();
 
             checkOutData.name = this.state.name;
             checkOutData.cardNum = this.state.cardNum;
@@ -82,9 +82,9 @@ class Buy extends Component {
         } else {
             let newPrice = parseInt(this.props.selectedItem.itemPrice);
             let donation = '0';
-            this.state.payedAmt =  this.updatedInfo(3, newPrice.toString());
-            this.state.donationStatus = this.updatedInfo(5, 'No');
-            this.state.donatedAmt = this.updatedInfo(4, donation);
+            this.state.payedAmt =  newPrice.toString();
+            this.state.donationStatus = 'No';
+            this.state.donatedAmt = donation;
 
             checkOutData.name = this.state.name;
             checkOutData.cardNum = this.state.cardNum;

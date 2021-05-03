@@ -6,7 +6,7 @@ import {Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 
 
 
-class Reciept extends Component {
+class Receipt extends Component {
     render() {
         return (
             <Card>
@@ -21,14 +21,14 @@ class Reciept extends Component {
                     <ListGroupItem>{"Name of buyer: " + this.props.name}</ListGroupItem>
                     <ListGroupItem>{"Shipping Address: " + this.props.shipAdr}</ListGroupItem>
                     <ListGroupItem>{"Total Payed: " + this.props.payedAmt}</ListGroupItem>
-                    <ListGroupItem>{"Making Donation?:" + this.props.donatedStatus}</ListGroupItem>
+                    <ListGroupItem>{"Making Donation?:" + this.props.donationStatus}</ListGroupItem>
                     <ListGroupItem>{"Total amount Donated: " + this.props.donatedAmt}</ListGroupItem>
                     <ListGroupItem>{"Charity donated to: " + this.props.charity}</ListGroupItem>
                 </ListGroup>
 
 
                 <Button onClick={() => {
-                    ;window.location.href = 'https://webapi-oddjobs.herokuapp.com'
+                    window.location.href = 'https://webapi-oddjobs.herokuapp.com'
                 }}>Return to home</Button>
             </Card>
         )
@@ -42,9 +42,9 @@ const mapStateToProps = state => {
         charity: state.item.charity,
         payedAmt: state.item.payedAmt,
         donatedAmt: state.item.donatedAmt,
-        donatedStatus: state.item.donatedStatus,
+        donationStatus: state.item.donationStatus,
         shipAdr: state.item.shipAdr
     }
 }
 
-export default connect(mapStateToProps)(Reciept);
+export default connect(mapStateToProps)(Receipt);

@@ -60,22 +60,43 @@ class Buy extends Component {
 
     checkOut = () => {
 
-        if (this.state.charity !== "N/A") {
-            let donation = Math.round(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
-            let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
-            this.updatedInfo(3, newPrice);
-            this.updatedInfo(5, 'Yes');
-            this.updatedInfo(4, donation);
+        var checkOutData = { name : '', cardNum: '', charity: '', payedAmt: '', donatedAmt: '', donationStatus: '', shipAdr: '' };
+
+        if (this.state.charity !== 'N/A') {
+            //let roundup = Math.ceil(parseInt(this.props.selectedItem.itemPrice)/3)*3;
+            let donation = (Math.ceil(parseFloat(this.props.selectedItem.itemPrice)) - parseFloat(this.props.selectedItem.itemPrice));
+            let newPrice = donation + parseFloat(this.props.selectedItem.itemPrice);
+            this.state.payedAmt = newPrice.toString();
+            this.state.donationStatus = 'Yes';
+            this.state.donatedAmt = donation.toFixed(2).toString();
+
+            checkOutData.name = this.state.name;
+            checkOutData.cardNum = this.state.cardNum;
+            checkOutData.charity = this.state.charity;
+            checkOutData.payedAmt = this.state.payedAmt;
+            checkOutData.donatedAmt = this.state.donatedAmt;
+            checkOutData.donationStatus = this.state.donationStatus;
+            checkOutData.shipAdr = this.state.shipAdr;
+
             const {dispatch} = this.props;
-            dispatch(setCheckout(this.state));
+            dispatch(setCheckout(checkOutData));
         } else {
-            let newPrice = parseInt(this.props.selectedItem.itemPrice);
+            let newPrice = parseFloat(this.props.selectedItem.itemPrice);
             let donation = '0';
-            this.updatedInfo(3, newPrice);
-            this.updatedInfo(5, 'No');
-            this.updatedInfo(4, donation);
+            this.state.payedAmt =  newPrice.toString();
+            this.state.donationStatus = 'No';
+            this.state.donatedAmt = donation;
+
+            checkOutData.name = this.state.name;
+            checkOutData.cardNum = this.state.cardNum;
+            checkOutData.charity = this.state.charity;
+            checkOutData.payedAmt = this.state.payedAmt;
+            checkOutData.donatedAmt = this.state.donatedAmt;
+            checkOutData.donationStatus = this.state.donationStatus;
+            checkOutData.shipAdr = this.state.shipAdr;
+
             const {dispatch} = this.props;
-            dispatch(setCheckout(this.state));
+            dispatch(setCheckout(checkOutData));
         }
     }
 
@@ -112,14 +133,14 @@ class Buy extends Component {
                         <option value="Misplaced Mythical Creatures Foundation">Donate to Misplaced Mythical Creatures
                             Foundation
                         </option>
-                        <option value="Foundation for the coding impaired">Donate to the Charity for the coding
-                            impaired
+                        <option value="Foundation for the Coding Impaired">Donate to the Charity for the Coding
+                            Impaired
                         </option>
-                        <option value="Hell's moral improvement fund">Donate to the hell's moral improvement fund
+                        <option value="Hell's Moral Improvement Fund">Donate to the Hell's Moral Improvement Fund
                         </option>
                     </select>
                 </label>
-                <Link to='./Reciept'>
+                <Link to='./Receipt'>
                     <Button type="button" onClick={this.checkOut}>Finish Checkout</Button>
                 </Link>
 

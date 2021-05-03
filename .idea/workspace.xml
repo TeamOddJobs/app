@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ae66c67-59ba-498c-b6bf-37fb2badbc9f" name="Default Changelist" comment="" />
+    <list default="true" id="a925f767-17c1-4ed3-ab7a-b8a3d0926e61" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/Buy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Buy.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,30 +12,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1rp07YUyTEIja3apV3EoS26Grb7" />
+  <component name="ProjectId" id="1rxxWhUoMOgbYs4quvDJ0Bd4HOz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2ae66c67-59ba-498c-b6bf-37fb2badbc9f" name="Default Changelist" comment="" />
-      <created>1619657557031</created>
+      <changelist id="a925f767-17c1-4ed3-ab7a-b8a3d0926e61" name="Default Changelist" comment="" />
+      <created>1619931576483</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1619657557031</updated>
-      <workItem from="1619657558406" duration="377000" />
-      <workItem from="1619657960350" duration="462000" />
-      <workItem from="1619888471280" duration="2156000" />
+      <updated>1619931576483</updated>
+      <workItem from="1619931578698" duration="1640000" />
+      <workItem from="1619935056231" duration="430000" />
+      <workItem from="1619935503355" duration="34000" />
+      <workItem from="1619935538598" duration="455000" />
+      <workItem from="1620009302204" duration="9955000" />
+      <workItem from="1620080888020" duration="1113000" />
     </task>
     <servers />
   </component>
@@ -41,6 +51,15 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

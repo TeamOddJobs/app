@@ -6,9 +6,9 @@ let initialState = {
       name: 'No Name',
       cardNum: '0',
       charity: 'N/A',
-      payedAmt: '0',
-      donatedAmt: '0',
-      donationStatus: 'true',
+      payedAmt: '',
+      donatedAmt: '',
+      donationStatus: 'No',
       shipAdr: 'Missing Shipping Address'
 }
 
@@ -27,6 +27,10 @@ const itemReducer = (state = initialState, action) => {
                   updated['selectedItem'] = action.selectedItem;
                   return updated;
             case constants.SET_CHECKOUT:
+                  updated['itemName'] = action.itemName;
+                  updated['price'] = action.price;
+                  updated['desc'] = action.desc;
+                  updated['image'] = action.image;
                   updated['name'] = action.name;
                   updated['cardNum'] = action.cardNum;
                   updated['charity'] = action.charity;

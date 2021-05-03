@@ -65,7 +65,7 @@ class Buy extends Component {
         if (this.state.charity !== 'N/A') {
             let roundup = Math.ceil(parseInt(this.props.selectedItem.itemPrice)/3)*3;
             let donation = (roundup - parseInt(this.props.selectedItem.itemPrice)).toFixed(2);
-            let newPrice = (donation + parseInt(this.props.selectedItem.itemPrice)).toFixed(2);
+            let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
             this.state.payedAmt = newPrice.toString();
             this.state.donationStatus = 'Yes';
             this.state.donatedAmt = donation.toString();

@@ -22,8 +22,8 @@ class Buy extends Component {
                 name: '',
                 cardNum: '',
                 charity: '',
-                payedAmt: 0,
-                donatedAmt: 0,
+                payedAmt: '',
+                donatedAmt: '',
                 donationStatus: '',
                 shipAdr: ''
         };

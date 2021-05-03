@@ -36,14 +36,14 @@ class Receipt extends Component {
 }
 const mapStateToProps = state => {
     return {
-        selectedItem: state.item.selectedItem,
-        name: state.item.name,
-        cardNum: state.item.cardNum,
-        charity: state.item.charity,
-        payedAmt: state.item.payedAmt,
-        donatedAmt: state.item.donatedAmt,
-        donatedStatus: state.item.donatedStatus,
-        shipAdr: state.item.shipAdr
+        // selectedItem: state.item.selectedItem,
+        // name: state.item.name,
+        // cardNum: state.item.cardNum,
+        // charity: state.item.charity,
+        // payedAmt: state.item.payedAmt,
+        // donatedAmt: state.item.donatedAmt,
+        // donatedStatus: state.item.donatedStatus,
+        // shipAdr: state.item.shipAdr
     }
 }
 

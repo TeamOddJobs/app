@@ -42,7 +42,7 @@ const mapStateToProps = state => {
         charity: state.item.charity,
         payedAmt: state.item.payedAmt,
         donatedAmt: state.item.donatedAmt,
-        donatedStatus: state.item.donatedStatus,
+        donationStatus: state.item.donationStatus,
         shipAdr: state.item.shipAdr
     }
 }

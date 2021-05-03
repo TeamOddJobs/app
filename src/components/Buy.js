@@ -62,7 +62,7 @@ class Buy extends Component {
 
         var checkOutData = { name : '', cardNum: '', charity: '', payedAmt: '', donatedAmt: '', donationStatus: '', shipAdr: '' };
 
-        if (this.state.charity !== 'N/A') {
+        if (!this.state.charity) {
             let donation = Math.ceil(parseInt(this.props.selectedItem.itemPrice)) - parseInt(this.props.selectedItem.itemPrice);
             let newPrice = donation + parseInt(this.props.selectedItem.itemPrice);
             this.updatedInfo(3, newPrice.toString());
